@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js" integrity="sha512-WNLxfP/8cVYL9sj8Jnp6et0BkubLP31jhTG9vhL/F5uEZmg5wEzKoXp1kJslzPQWwPT1eyMiSxlKCgzHLOTOTQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<style>
+    body{
+    background-color: rgb(199, 150, 15);
+    @media only screen and (max-width:350px){
+        .container{
+            width:188px;
+            height:200px;
+            background-color:rgb(255, 77, 0);
+            text-align: center;
+            margin:0 auto;
+            margin-top:50px;
+            border-radius: 20px;
+            box-shadow: 1px 1px 6px 1px rgb(15, 15, 15);
+        }
+    }
+}
+.container{
+    width:300px;
+    height:200px;
+    background-color:rgb(255, 77, 0);
+    text-align: center;
+    margin:0 auto;
+    margin-top:50px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 6px 1px rgb(15, 15, 15);
+}
+.container h1{
+  font-family: serif;
+  text-shadow: 1px 1px 1px  rgb(15, 15, 15);
+}
+ input{
+  border:1px solid black;
+  border-radius: 5px;
+}
+button{
+    border:1px solid black;
+    border-radius: 5px;
+    background-color: silver;
+}
+
+</style>
+<body>
+    <div class="container">
+    <h1>Simple Calculator</h1>
+    <input type="number" id="num1" placeholder="Enter first number"><br><br>
+    <input type="number" id="num2" placeholder="Enter Second number"><br><br>
+    <button onclick="calculateSum()">Sum</button>
+    <button onclick="calculateProduct()">Mult</button>
+    <button onclick="calculateSubtraction()">sub</button>
+    <button onclick="calculateDivision()">div</button>
+    <p id="output"></p>
+    <script>
+        function calculateSum(){
+            var num1=parseFloat(document.getElementById('num1').value);
+            var num2=parseFloat(document.getElementById('num2').value);
+            sum=num1+num2;
+            document.getElementById('output').innerText='Sum:'+ sum;
+        }
+        function calculateProduct(){
+            var num1=parseFloat(document.getElementById('num1').value);
+            var num2=parseFloat(document.getElementById('num2').value);
+            multiplication=num1*num2;
+            document.getElementById('output').innerText='Multiplication:'+ multiplication;
+        }
+        
+        function calculateSubtraction(){
+            var num1=parseFloat(document.getElementById('num1').value);
+            var num2=parseFloat(document.getElementById('num2').value);
+            subtraction=num1 - num2;
+            document.getElementById('output').innerText='Subtraction:' + subtraction; 
+        }
+       
+        function calculateDivision(){
+            var num1=parseFloat(document.getElementById('num1').value);
+            var num2=parseFloat(document.getElementById('num2').value);
+            if(num2!==0){
+                var division=num1 / num2;
+                document.getElementById('output').innerText='Division:' + division;
+            }
+            else{
+                document.getElementById('output').innerText = 'Error: Division by zero';
+            }
+        }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+        $('button').click(function() {
+        // Add background color when mouse enters
+        $(this).css('background-color', 'yellow');
+       }).mouseleave(function() {
+        // Remove background color when mouse leaves
+        $(this).css('background-color', 'silver');
+     });
+ });
+
+      </script>
+    </div>
+</body>
+</html>
